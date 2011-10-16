@@ -1,5 +1,5 @@
-class Generation extends Ancestor
-
-  constructor: (args) ->
-    # body...
-  
+# class Generation extends Ancestor
+# 
+#   constructor: (args) ->
+#     # body...
+#   

@@ -7,4 +7,4 @@ clean:
 deps:
 	@test `which coffee` || echo 'You need to have CoffeeScript in your PATH.\nPlease install it using  `npm install -g coffee-script`.'
 
-default: generate
+default: clean generate
