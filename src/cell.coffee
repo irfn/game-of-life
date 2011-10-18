@@ -8,15 +8,20 @@ class Cell
 
    render: () ->
       @ctx.fillStyle = this.shade()
-      @ctx.fillRect(@point.x, @point.y, 10, 10)
+      @ctx.fillRect(@point.x, @point.y, 10, 10)      
 
    ping: () ->
       @pingCount++
 
+   pingAttempt: () ->
+      @pingAttempted = true
+
    spawn: () ->
-     @currentAge = 1
-     @pingCount = 0	
+     @currentAge = 0
+     @pingCount = 0
+     @pingAttempted = false
      this.render()
+     this.age()
 
    die: () ->
       @currentAge = undefined
@@ -32,10 +37,11 @@ class Cell
    crowded: () ->
       @pingCount > 3 
 
-   life: ()  ->
-	    if @pingCount > 0
+   life: ()  ->	
+	    if @pingAttempted
          if this.lonely() or this.crowded()
             this.die()
          else 
-            this.age() and this.render()
+            this.render() and this.age()
          @pingCount = 0
+         @pingAttempted = false

@@ -33,6 +33,7 @@ class Point
 
    ping: () ->
       @neighbourCount = 0
+      @cell?.pingAttempt()
       for point in this.neighbours()
          this.pingCell() if point?.cell?
 
