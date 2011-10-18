@@ -32,7 +32,6 @@ class Point
       [this.topLeft(), this.left(), this.bottomLeft(), this.topRight(), this.right(), this.bottomRight(), this.top(), this.bottom()]
 
    ping: () ->
-      console.log "tick..."
       @neighbourCount = 0
       for point in this.neighbours()
          this.pingCell() if point?.cell?
