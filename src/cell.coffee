@@ -4,16 +4,10 @@ class Cell
       this.spawn()
 
    shade: () ->
-      undefined:"rgb(200,200,200)"
-      1:"rgb(100,0,0)"
-      2:"rgb(120,0,0)"
-      3:"rgb(140,0,0)"
-      4:"rgb(150,0,0)"
-      5:"rgb(160,0,0)"
-      6:"rgb(170,0,0)"
+      if @currentAge? then "rgb(#{ 100 + @currentAge * 10 },0,0)" else "rgb(200,200,200)" 
 
    render: () ->
-      @ctx.fillStyle = this.shade()[@currentAge]
+      @ctx.fillStyle = this.shade()
       @ctx.fillRect(@point.x, @point.y, 10, 10)
 
    ping: () ->
