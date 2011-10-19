@@ -1,14 +1,12 @@
 class Seeds
 
    constructor: (@grid) ->
-      @seed = -1
 
    seedAt: (x,y) ->
-      @grid.pointAt(@seed + x, y).seed()
+      @grid.pointAt(x, y).seed()
       @grid
 
    glider: () ->
-      @seed++
       this.seedAt(40,40)
       this.seedAt(50,50)
       this.seedAt(60,50)
@@ -16,13 +14,35 @@ class Seeds
       this.seedAt(60,30)
 
    blinker: () ->
-      @seed++
       this.seedAt(40,40)
       this.seedAt(50,40)
       this.seedAt(60,40)
 
+   pufferTrain: () ->
+      this.seedAt(100,80)
+      this.seedAt(110,90)
+      this.seedAt(110,100)
+      this.seedAt(110,110)
+      this.seedAt(100,110)
+      this.seedAt(90,110)
+      this.seedAt(80,110)
+      this.seedAt(70,100)
+      this.seedAt(70,150)
+      this.seedAt(80,160)
+      this.seedAt(90,160)
+      this.seedAt(90,170)
+      this.seedAt(90,180)
+      this.seedAt(80,190)
+      this.seedAt(100,220)
+      this.seedAt(110,230)
+      this.seedAt(110,240)
+      this.seedAt(110,250)
+      this.seedAt(100,250)
+      this.seedAt(90,250)
+      this.seedAt(80,250)
+      this.seedAt(70,240)
+
    gosperGlider: () ->
-      @seed++
       this.seedAt(250, 80)
       this.seedAt(230, 90)
       this.seedAt(250, 90)
