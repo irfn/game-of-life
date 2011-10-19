@@ -1,6 +1,11 @@
 class Game	
    constructor: (@grid) ->
-	    $('#tick').bind 'click', (event) =>
+      @refreshIntervalId = undefined
+      $('#tick').bind 'click', (event) =>
 	       @grid.tick()
-	    # $('#run').bind 'click', (event) =>
-			   # @grid.tick() for x in [1..10]				
+      $('#run').bind 'click', (event) =>
+	       @refreshIntervalId = setInterval ->
+            $('#tick').trigger 'click'
+         , 100
+         $('#stop').bind 'click', (event) =>
+	         clearInterval @refreshIntervalId
